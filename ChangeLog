@@ -1,0 +1,95 @@
+#========================================================================
+#
+# ChangeLog - change log for BackupPC.
+#
+# DESCRIPTION
+#   Revision history for BackupPC, detailing significant changes between
+#   versions, most recent first.
+#
+# AUTHOR
+#   Stephen Joyce <stephen@physics.unc.edu>
+#
+#========================================================================
+#
+#------------------------------------------------------------------------
+# Version 1.0.0, 22 Nov 2010
+#------------------------------------------------------------------------
+
+* Initial release of BackupAFS on sourceforge.net
+
+* Rebranded to BackupAFS to denote major changes.
+
+* Decoupled from the AFS "backup" database.
+
+* Backups are no-longer mangled in backup store.
+
+* Added compression routines. Gzip or Pigz supported.
+
+* Added detail of space saved by compression on VolSet summary page.
+
+* Better error condition checking aned reporting.
+
+* General code cleanup and removal of much unused legacy BackupPC code.
+
+* Added and documented BackupAFS_migrate_* scripts for sites migrating
+from BackupPC4AFS.
+
+#------------------------------------------------------------------------
+# BackupPC4AFS Version 3.0.0.2, 23 May 2007
+#------------------------------------------------------------------------
+
+* Fixed a bug in restore routine where the full dump would not be
+  restored if exponential expiry were used and an intervening full
+  dump had expired and been deleted. 
+
+#------------------------------------------------------------------------
+# BackupPC4AFS Version 3.0.0.1, 16 May 2007
+#------------------------------------------------------------------------
+
+* Cosmetic fix for "vos examine" command in voswrap.pl. Updated logo.
+
+#------------------------------------------------------------------------
+# BackupPC4AFS Version 3.0.0, 14 May 2007
+#------------------------------------------------------------------------
+
+* Integrated former patch into regular BackupPC installer.
+
+* Introduced new name, BackupPC4AFS.
+
+* Upgraded code base to BackupPC-3.0.0 (full release).
+
+* Modified AFS backup code to deal with pathnames > 80 characters.
+
+* Better integration of VOS xfer method.
+
+* Ability to configure AFS hosts via CGI.
+
+* Updated and added installation and configuration documentation.
+
+#------------------------------------------------------------------------
+# BackupPC AFS patch Version 0.03
+#------------------------------------------------------------------------
+
+* Changed order of operations.
+
+* Always create .backup volumes; this way, in the absence of any other
+  backup product, we know that any volume without a recent .backup volume
+  doesn't belong to any volumeset being dumped.
+
+* Look at last update of .backup volume, not RW (Jeffrey Hutzelman,
+  <jhutz@cmu.edu>, openafs-info, 2005-12-04).
+
+* Deal with volumes that have "Never" been updated.
+
+#------------------------------------------------------------------------
+# BackupPC AFS patch Version 0.02
+#------------------------------------------------------------------------
+
+* Fixed minor perl annoyances.
+
+#------------------------------------------------------------------------
+# BackupPC AFS patch Version 0.02
+#------------------------------------------------------------------------
+
+* Initial release.
+

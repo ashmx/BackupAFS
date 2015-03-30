@@ -1,0 +1,123 @@
+
+                              BackupAFS
+
+                            Version 1.0.0
+
+                            22 Nov 2010
+
+                   Copyright (C) 2001-2009 Craig Barratt.
+                   Copyright (C) 2006-2010 Stephen Joyce.
+
+                        All rights reserved.
+
+      This program is free software; you can redistribute it and/or
+      modify it under the terms of the GNU Affero General Public License
+                          version 3 (ONLY).
+
+                        See the LICENSE file.
+
+QUICK START:
+-----------
+
+The latest version of BackupAFS can be fetched from:
+
+    http://backupafs.sourceforge.net
+
+To install BackupAFS run these commands as root:
+
+    tar zxf BackupAFS-1.0.0.tar.gz
+    cd BackupAFS-1.0.0
+    perl configure.pl
+
+This will automatically determine some system information and prompt you
+for install paths.  Do "perldoc configure.pl" to see the various options
+that configure.pl provides.
+
+INTRODUCTION:
+------------
+
+    BackupAFS is a high-performance, enterprise-grade system for backing up
+    OpenAFS volumes to a server's disk. This is a strategy commonly known as
+    "disk to disk", or "disk2disk" backup, and thanks to the low cost and
+    high performance of modern hard disks, is both fast and economical.
+    BackupAFS is highly configurable and easy to install and maintain.
+
+    Given the ever decreasing cost of disks and raid systems, it is now
+    practical and cost effective to store backups on a (remote) server's
+    local disk or network storage. For some sites this might be the complete
+    backup solution. For other sites additional permanent archives could be
+    created by periodically backing up the server to tape.
+
+    Features include:
+
+    *   Optional compression provides additional reductions in storage
+        (around 35-40%, depending on your data).
+
+    *   A powerful http/cgi user interface allows administrators to view the
+        current status, edit configuration, add/delete volumesets, view log
+        files, and allows users to initiate and cancel backups and browse
+        and restore volumes from backups.
+
+    *   No additional software is needed. BackupAFS uses the OpenAFS 'vos'
+        binary and stores its files in standard 'vos dump' format.
+
+    *   Flexible restore options. Volume dump files can be downloaded from
+        any backup directly from the CGI interface. Volumes may also be
+        restored directly into AFS, overwriting any existing volume of the
+        same name or with an optional extension (.restore for instance) to
+        prevent namespace collisions.
+
+    *   Flexible configuration parameters allow a configurable number of
+        multiple backups to be performed in parallel, specification of which
+        volumes to backup, various schedules for full and incremental
+        backups, schedules for email notifications to users and admins and
+        so on. Configuration parameters can be set system-wide or also on a
+        per-volumeset basis.
+
+    *   Admins (and optionally users) may be sent periodic email reminders
+        if their volumeset has not recently been backed up. Email content,
+        timing and policies are configurable.
+
+    *   BackupAFS is Open Source software hosted by SourceForge.
+
+Credits
+    Craig Barratt is the primary author and developer of BackupPC, the
+    application on which BackupAFS is largely based. Without BackupPC, and
+    the fact that it is GPL'ed software, BackupAFS would not exist.
+
+    Ryan Kucera contributed the directory navigation code and images for
+    BackupPC v1.5.0. He contributed the first skeleton of BackupPC_restore.
+    He also added a significant revision to the CGI interface, including CSS
+    tags, in BackupPC v2.1.0.
+
+    Rich Duzenbury wrote the RSS feed option for the CGI interface.
+
+    Jono Woodhouse from CapeSoft Software (www.capesoft.com) provided a new
+    CSS skin for BackupPC v3.0.0 with several layout improvements. Sean
+    Cameron (also from CapeSoft) designed new and more compact file icons
+    for BackupPC v3.0.0.
+
+    Your name could appear here in the next version!
+
+License
+    BackupAFS is based on BackupPC. BackupPC is (C) 2001-2009 Craig Barratt.
+    BackupPC is free software, available under the GNU AGPL v3 (ONLY).
+
+    All portions of BackupAFS not (C) Craig Barratt are (C) 2007-2010
+    Stephen Joyce.
+
+    This program (BackupAFS) is released under AGPL v3 license (no other
+    versions).
+
+    This program is free software: you can redistribute it and/or modify it
+    under the terms of VERSION 3 of the GNU Affero General Public License as
+    published by the Free Software Foundation.
+
+    This program is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero
+    General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
