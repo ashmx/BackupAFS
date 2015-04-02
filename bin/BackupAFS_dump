@@ -715,6 +715,12 @@ for my $shareName ( @$ShareNames ) {
     # 1 while ( wait() >= 0 );
 }
 
+unless ( scalar @$ShareNames ) {
+    $stat{volsetError} = "volset $volset doesn't match any volumes"
+       if ( $stat{volsetError} eq "" );
+    $stat{xferOK} = 0;
+}
+
 #
 # If this is a full, and any share had zero files then consider the dump bad
 #
@@ -765,16 +771,6 @@ if ( !$stat{xferOK} ) {
 	$XferLOG->write(\"Got fatal error during xfer ($stat{volsetError})\n");
     }
     if ( !$Abort ) {
-	#
-	# wait a short while and see if the system is still alive
-	#
-	sleep(5);
-	if ( $bafs->CheckVolSetAlive($volsetIP) < 0 ) {
-	    $stat{volsetAbort} = 1;
-	}
-	if ( $stat{volsetAbort} ) {
-	    $stat{volsetError} = "lost network connection during backup";
-	}
 	print(LOG $bafs->timeStamp, "Backup aborted ($stat{volsetError})\n");
 	$XferLOG->write(\"Backup aborted ($stat{volsetError})\n");
     } else {
@@ -931,7 +927,8 @@ sub BackupFailCleanup
     # only keep this backup if it has more files than the previous
     # partial.
     #
-    if ( $type eq "full" ) {
+    if ( $xfer && $type eq "full" ) {
+	
 	if ( $nFilesTotal == 0 && $xfer->getStats->{fileCnt} == 0 ) {
 	    #
 	    # Xfer didn't report any files, but check in the new
